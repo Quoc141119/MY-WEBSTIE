@@ -1,0 +1,10 @@
+C:\Users\ADMIN\source\repos\ListCommerce\LiteCommerce.DomainModels\bin\Debug\LiteCommerce.DomainModels.dll
+C:\Users\ADMIN\source\repos\ListCommerce\LiteCommerce.DomainModels\bin\Debug\LiteCommerce.DomainModels.pdb
+C:\Users\ADMIN\source\repos\ListCommerce\LiteCommerce.DomainModels\obj\Debug\LiteCommerce.DomainModels.csprojAssemblyReference.cache
+C:\Users\ADMIN\source\repos\ListCommerce\LiteCommerce.DomainModels\obj\Debug\LiteCommerce.DomainModels.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\ListCommerce\LiteCommerce.DomainModels\obj\Debug\LiteCommerce.DomainModels.dll
+C:\Users\ADMIN\source\repos\ListCommerce\LiteCommerce.DomainModels\obj\Debug\LiteCommerce.DomainModels.pdb
+C:\Users\Tom Cu\Documents\Visual Studio 2015\LiteCommerce_ASP.NET-master\LiteCommerce_ASP.NET-master\LiteCommerce.DomainModels\bin\Debug\LiteCommerce.DomainModels.dll
+C:\Users\Tom Cu\Documents\Visual Studio 2015\LiteCommerce_ASP.NET-master\LiteCommerce_ASP.NET-master\LiteCommerce.DomainModels\bin\Debug\LiteCommerce.DomainModels.pdb
+C:\Users\Tom Cu\Documents\Visual Studio 2015\LiteCommerce_ASP.NET-master\LiteCommerce_ASP.NET-master\LiteCommerce.DomainModels\obj\Debug\LiteCommerce.DomainModels.dll
+C:\Users\Tom Cu\Documents\Visual Studio 2015\LiteCommerce_ASP.NET-master\LiteCommerce_ASP.NET-master\LiteCommerce.DomainModels\obj\Debug\LiteCommerce.DomainModels.pdb

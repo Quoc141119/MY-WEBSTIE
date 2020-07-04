@@ -1,0 +1,130 @@
+﻿@model LiteCommerce.DomainModels.Order
+@{
+}
+
+<div class="box box-primary">
+    <form role="form" action="~/Order/Create" method="post">
+        <div class="box-body">
+            <div class="form-group row">
+                <input type="hidden" name="OrderID" value="@Model.OrderID" />
+                <div class="col-sm-4">
+                    <label>Employee:<span style="color:red">@Html.ValidationMessage("Employee")</span></label>
+                    <select class="form-control" name="EmployeeID">
+                        <option value="">-- Choose Employee --</option>
+                        @foreach (var employee in SelectListHelper.Employees())
+                        {
+                            if (Model.EmployeeID == Convert.ToInt32(employee.Value))
+                            {
+                                <option value="@employee.Value" selected>@employee.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@employee.Value">@employee.Text</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label>Customer:<span style="color:red">@Html.ValidationMessage("Customer")</span></label>
+                    <select class="form-control" name="CustomerID">
+                        <option value="">-- Choose Customer --</option>
+                        @foreach (var customer in SelectListHelper.Customers())
+                        {
+                            if (Model.CustomerID == customer.Value)
+                            {
+                                <option value="@customer.Value" selected>@customer.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@customer.Value">@customer.Text</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Required Date:<span style="color:red">@Html.ValidationMessage("RequiredDate")</span></label>
+                        <input type="date" class="form-control" name="RequiredDate" value="@Model.RequiredDate.ToString("yyyy-MM-dd")">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label>Country:<span style="color:red">@Html.ValidationMessage("Country")</span></label>
+                    <select class="form-control" name="ShipCountry">
+                        <option value="">-- Choose Country --</option>
+                        @foreach (var country in SelectListHelper.Countries())
+                        {
+                            if (Model.ShipCountry == country.Value)
+                            {
+                                <option value="@country.Value" selected>@country.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@country.Value">@country.Text</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label>City:<span style="color:red">@Html.ValidationMessage("City")</span></label>
+                    <input type="text" class="form-control" placeholder="Ex: New Orleans" name="ShipCity" value="@Model.ShipCity">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Address:<span style="color:red">@Html.ValidationMessage("Address")</span></label>
+                <input type="text" class="form-control" placeholder="Address" name="ShipAddress" value="@Model.ShipAddress">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <label>Shipper:<span style="color:red">@Html.ValidationMessage("Shipper")</span></label>
+                    <select class="form-control" name="ShipperID">
+                        <option value="">-- Choose Shipper --</option>
+                        @foreach (var shipper in SelectListHelper.Shippers())
+                        {
+                            if (Model.ShipperID == Convert.ToInt32(shipper.Value))
+                            {
+                                <option value="@shipper.Value" selected>@shipper.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@shipper.Value">@shipper.Text</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Shipped Date:<span style="color:red">@Html.ValidationMessage("ShippeDate")</span></label>
+                        <input type="date" class="form-control" name="ShippeDate" value="@Model.ShippeDate.ToString("yyyy-MM-dd")">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Freight:</label>
+                        <select class="form-control" name="Freight">
+                            <option value="15000">15.000</option>
+                            <option value="20000">20.000</option>
+                            <option value="30000">30.000</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-sm btn-primary">
+                <i class="fa fa-save"></i> Save
+            </button>
+            <a class="btn btn-sm btn-default" href="~/Order">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+

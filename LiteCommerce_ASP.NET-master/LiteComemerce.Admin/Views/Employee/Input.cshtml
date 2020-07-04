@@ -1,0 +1,133 @@
+﻿@model LiteCommerce.DomainModels.Employee
+@{
+}
+
+<div class="box box-primary">
+    <form role="form" action="~/Employee/Input" method="post" enctype="multipart/form-data">
+        <div class="box-header text-right">
+            <a href="~/Employee">Back to List</a>
+        </div>
+        <div class="box-body">
+            <div class="form-group row">
+                <div class="col-sm-8 form-group">
+                    <input type="hidden" name="EmployeeID" value="@Model.EmployeeID" />
+                    <input type="hidden" name="PhotoPath" value="@Model.PhotoPath" />
+
+                    <div class="col-sm-10 form-group row">
+                        <label>Firt Name:<span style="color:red">@Html.ValidationMessage("FirstName")</span></label>
+                        <input type="text" class="form-control" placeholder="First Name" name="FirstName" value="@Model.FirstName">
+                    </div>
+                    <div class="col-sm-10 form-group row">
+                        <label>Last Name:<span style="color:red">@Html.ValidationMessage("LastName")</span></label>
+                        <input type="text" class="form-control" placeholder="Last Name" name="LastName" value="@Model.LastName">
+                    </div>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <img class="img-circle" src="~/Images/Uploads/@Model.PhotoPath" alt="User Avatar" height="100px">
+                    <input type="file" class="form-control" placeholder="Photo path" name="uploadFile">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Title:<span style="color:red">@Html.ValidationMessage("Title")</span></label>
+                <input type="text" class="form-control" placeholder="Ex: Sale Manager" name="Title" value="@Model.Title">
+            </div>
+            <div class="form-group">
+                <label>BirthDate:<span style="color:red">@Html.ValidationMessage("BirthDate")</span></label>
+                <input type="date" class="form-control" placeholder="Birth Date" name="BirthDate" value="@Model.BirthDate.ToString("yyyy-MM-dd")">
+            </div>
+            <div class="form-group">
+                <label>HireDate:<span style="color:red">@Html.ValidationMessage("HireDate")</span></label>
+                <input type="date" class="form-control" placeholder="Hire Date" name="HireDate" value="@Model.HireDate.ToString("yyyy-MM-dd")">
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" class="form-control" placeholder="Email" name="Email" value="@Model.Email">
+            </div>
+            <div class="form-group">
+                <label>Address:</label>
+                <input type="text" class="form-control" placeholder="Address" name="Address" value="@Model.Address">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label>Country:</label>
+                    <select class="form-control" name="Country">
+                        <option value="">-- Choose Country --</option>
+                        @foreach (var country in SelectListHelper.Countries())
+                        {
+                            if (Model.Country == country.Value)
+                            {
+                                <option value="@country.Value" selected>@country.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@country.Value">@country.Text</option>
+                            }
+
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label>City:</label>
+                    <input type="text" class="form-control" placeholder="Ex: New Orleans" name="City" value="@Model.City">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label>Home Phone:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Home Phone" name="HomePhone" value="@Model.HomePhone">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label>Notes:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-fax"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Notes" name="Notes" value="@Model.Notes">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Roles:</label>
+                <div>
+                    <input type="checkbox" name="Roles" @(Model.Roles.Contains("saleman") == true ? "checked" : "")  value="saleman"/>
+                    <label>Saleman</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="Roles" @(Model.Roles.Contains("managedata") == true ? "checked" : "") value="managedata" />
+                    <label>Manager Data</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="Roles" @(Model.Roles.Contains("manageraccount") == true ? "checked" : "") value="manageraccount" />
+                    <label>Manager Account</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" class="form-control" placeholder="Password" name="Password" value="@Model.Password" @(ViewBag.Title == "Edit a Employee" ? "readonly" : "") >
+            </div>
+            @*<div class="form-group">
+
+                    <label>Photo:<span style="color:red"></label>
+                    <input type="file" class="form-control" placeholder="Photo path" name="uploadFile">
+                </div>*@
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-sm btn-primary">
+                <i class="fa fa-save"></i> Save
+            </button>
+            <a class="btn btn-sm btn-default" href="~/Employee">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+

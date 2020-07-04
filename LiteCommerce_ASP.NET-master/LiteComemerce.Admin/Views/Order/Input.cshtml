@@ -1,0 +1,72 @@
+﻿@model LiteComemerce.Admin.Models.Details
+@{
+    int i = 0;
+}
+<div class="box box-primary">
+    <form role="form" action="~/Order/Input" method="post">
+        <div class="box-body">
+            <div class="form-group row">
+                <input type="hidden" name="OrderID" value="@Model.orderID" />
+                <div class="col-sm-4">
+                    <label>Prodcuct:</label>
+                    <select class="form-control" name="ProductID">
+                        @foreach (var product in SelectListHelper.Products())
+                        {
+                            <option value="@product.Value">@product.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label>Quantity:</label>
+                    <input class="form-control" type="number" name="Quantity" min="1" value="1"/>
+                </div>
+                <div class="col-sm-4">
+                    <label>Discount:</label>
+                    <input class="form-control" type="number" name="Discount" min="0" value="0"/>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-sm btn-primary">
+                <i class="fa fa-save"></i> Add
+            </button>
+            <a class="btn btn-sm btn-warning" href="~/Order">Complete</a>
+        </div>
+    </form>
+</div>
+<div class="box box-success">
+    <div class="box-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:50px">#</th>
+                    <th style="width:150px">Product Name</th>
+                    <th style="width:auto">Quantity</th>
+                    <th style="width:auto">Discount</th>
+                    <th style="width:150px">UnitPrice</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var detail in Model.data)
+                {
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@detail.Product.ProductName</td>
+                        <td>@detail.Quantity</td>
+                        <td>@detail.Discount</td>
+                        <td>@detail.UnitPrice</td>
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <th>Tổng tiền</th>
+                    <td></td>
+                    <td></td>
+                    <th>@Model.total</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

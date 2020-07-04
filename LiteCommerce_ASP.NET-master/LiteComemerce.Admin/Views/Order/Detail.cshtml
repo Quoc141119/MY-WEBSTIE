@@ -1,0 +1,51 @@
+﻿@model LiteComemerce.Admin.Models.Details
+
+@{
+    ViewBag.Title = "Detail";
+    ViewBag.SmallTitle = "Chi tiết đơn hàng";
+    int i = 0;
+    float total = 0;
+}
+
+<div class="container-fluid row lc-margin-bottom">
+    <div class="text-right">
+        <div class="btn-group">
+            <a class="btn btn-sm btn-info" href="~/Order/">Back</a>
+        </div>
+    </div>
+</div>
+
+<div class="box box-success">
+    <div class="box-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:50px">#</th>
+                    <th style="width:auto">Product</th>
+                    <th style="width:auto">Quantity</th>
+                    <th style="width:auto">Discount</th>
+                    <th style="width:auto">UnitPrice</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.data)
+                {
+                    <tr>
+                        <td>@(++i)</td>
+                        <td>@detail.Product.ProductName</td>
+                        <td>@detail.Quantity</td>
+                        <td>@detail.Discount</td>
+                        <td>@detail.UnitPrice</td>
+                    </tr>
+                }
+                    <tr>
+                        <td></td>
+                        <th>Tổng cộng</th>
+                        <td></td>
+                        <td></td>
+                        <th>@Model.total</th>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
