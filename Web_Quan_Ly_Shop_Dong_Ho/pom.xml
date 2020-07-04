@@ -17,7 +17,7 @@
 		<jstl.version>1.2</jstl.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
 		<mssql.jdbc.version>6.1.0.jre8</mssql.jdbc.version>
-		<spring.data.jpa>1.9.2.RELEASE</spring.data.jpa>
+		<spring.data.jpa>1.11.23.RELEASE</spring.data.jpa>
 	</properties>
 	<dependencies>
 		<dependency>
